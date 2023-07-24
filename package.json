@@ -1,0 +1,32 @@
+{
+  "name": "docx-temp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc -b tsconfig.json",
+    "start": "node ./dist/server.js",
+    "go": "npm run build && node ./dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrunkDr8am/docx-temp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrunkDr8am/docx-temp/issues"
+  },
+  "homepage": "https://github.com/DrunkDr8am/docx-temp#readme",
+  "devDependencies": {
+    "@types/node": "^20.4.4",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "docx-templates": "^4.11.2",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.20.0"
+  }
+}
