@@ -1,9 +1,6 @@
 const fastify = require('fastify')({ logger: true })
 require('dotenv').config();
 
-import createReport from 'docx-templates';
-import fs from 'fs';
-
 fastify.register(require('./root/postData'))
 
 fastify.get('/', async (request: any, reply: any) => {

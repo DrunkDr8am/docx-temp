@@ -6,9 +6,9 @@ import fs from 'fs';
 export default async function (fastify: FastifyInstance) {
 
     fastify.post<{ Body: CreateReportModel }>('/postdata', async (request: any, reply: any) => {
-        //const { type_name } = request.Body;
-        const filePath = './enviroment/' + "grnknManor.docx"
-        const data_json = { gen: { manor_type: 'wdaw', title: 'dnasmka' } }
+        const { type_name, json_params } = request.body;
+        const filePath = './enviroment/' + String(type_name);
+        const data_json = JSON.parse(fs.readFileSync("./enviroment/object.json", 'utf8'));
         try {
             const template = fs.readFileSync(filePath);
             const buffer = await createReport({
@@ -16,12 +16,13 @@ export default async function (fastify: FastifyInstance) {
                 cmdDelimiter: ['{{', '}}'],
                 data: data_json,
             });
-            fs.writeFileSync('report.docx', buffer)
-
+            const now = new Date();
+            fs.writeFileSync('./reports/report' + now.getTime() + '.docx', buffer)
+            return buffer
         } catch (error) {
             console.log(error)
+            return (error)
         }
-        return "Here must be report.docx but not now("
     })
 
     fastify.get('/postdata', async (request: any, reply: any) => {

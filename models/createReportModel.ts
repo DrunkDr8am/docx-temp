@@ -1,5 +1,5 @@
 interface CreateReportModel {
-    json_name:JSON,
+    json_params:JSON,
     type_name:String
 }
 

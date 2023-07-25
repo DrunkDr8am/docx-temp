@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const fastify = require('fastify')({ logger: true });
 require('dotenv').config();
 fastify.register(require('./root/postData'));
