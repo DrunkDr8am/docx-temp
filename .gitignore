@@ -1,1 +1,3 @@
-enviroment/object.json
+**/node_modules
+**/dist
+**/.env
