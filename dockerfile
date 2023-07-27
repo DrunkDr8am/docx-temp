@@ -1,4 +1,4 @@
-FROM node:16.16.0
+FROM node:16-slim
 
 WORKDIR /usr/src/app
 
@@ -16,7 +16,5 @@ COPY .env ./
 ADD templates ./templates
 ADD dist ./dist
 # ADD node_modules ./node_modules
-
-EXPOSE 5645
 
 CMD [ "npm", "start" ]
